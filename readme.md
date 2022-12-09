@@ -27,3 +27,4 @@ module.exports = {
 - 第一次访问时，会创建默认活动（quickstartFunctions/data/project.js），你可以前往数据库添加“openid”为你自己，就可以在报名列表页面管理了。
 - 你可以在 `mp_register_project` 中创建多个活动，在小程序端以`pages/index/index?id=XXX`的形式访问。
 - 自己的活动图片可以上传保存在云存储中，或者静态资源存储中，拒绝盗用其他人的图片链接。
+
