@@ -1,19 +1,18 @@
 <wxs module="tool" src="./tool.wxs"></wxs>
 <view class="form-container">
 	<view class="form-item">
-			<mp-cells ext-class="my-cells" title="">
-          <mp-cell value="活动名称" footer="说明文字">
-            <block>
-              <input class="weui-input"  placeholder="请输入活动名称"/>
-            </block>
-            <view slot="footer">说明文字</view>
-          </mp-cell>
-      </mp-cells>
+    <mp-cells ext-class="item-cell">
+      <mp-cell title="活动名称" >
+        <input class="weui-input"  placeholder="请输入活动名称" />
+      </mp-cell>
+    </mp-cells>
   </view>
-  <view class="form-item" bindtap="openLocation">
-			<mp-icon class="icon" icon="location" color="#343434" size="{{20}}"></mp-icon>
-			<view class="content">活动</view>
-			<mp-icon class="arrow" icon="arrow" color="#787878" size="{{15}}"></mp-icon>
+	<view class="form-item">
+    <mp-cells ext-class="item-cell">
+      <mp-cell title="活动名称" >
+        <input class="weui-input"  placeholder="请输入活动名称" />
+      </mp-cell>
+    </mp-cells>
   </view>
   <view class="form-item">
     <button class="weui-btn button" type="primary">创建活动</button>

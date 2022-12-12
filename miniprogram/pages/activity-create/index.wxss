@@ -26,3 +26,7 @@ page {
 .form-item .button{
   width: 100%;
 }
+.item-cells{
+  width: 100%;
+  border-radius: 5px;
+}
