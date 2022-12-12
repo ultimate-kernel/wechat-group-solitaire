@@ -16,7 +16,7 @@
 		</view>
 		<view class="item arrow_model" bindtap="tosignlist">
 			<mp-icon class="icon" icon="group-detail" color="{{project.style.backgroudColor||'#343434'}}" size="{{20}}"></mp-icon>
-			<view class="content">报名人数限额12：{{(project.people_number!=null&&project.people_number>0)?project.people_number+'人':'不限'}} / 已报名：{{sign_num||0}}人</view>
+			<view class="content">报名人数限额1：{{(project.people_number!=null&&project.people_number>0)?project.people_number+'人':'不限'}} / 已报名：{{sign_num||0}}人</view>
 			<mp-icon class="arrow" icon="arrow" color="#787878" size="{{15}}"></mp-icon>
 		</view>
 		<view class="item">

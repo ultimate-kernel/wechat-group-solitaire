@@ -1,12 +1,29 @@
 {
 	"pages": [
 		"pages/activity-index/index",
+    "pages/activity-create/index",
+    "pages/activity-me/index",
 		"pages/index/index",
 		"pages/list/list"
 	],
 	"window": {
 		"navigationBarTextStyle": "white"
 	},
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "black",
+    "list": [{
+      "pagePath": "pages/activity-index/index",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/activity-create/index",
+      "text": "发布活动"
+    }, {
+      "pagePath": "pages/activity-me/index",
+      "text": "我的"
+    }]
+  },
 	"useExtendedLib": {
 		"weui": true
 	},
