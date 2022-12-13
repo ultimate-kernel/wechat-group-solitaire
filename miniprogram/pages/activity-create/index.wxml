@@ -1,4 +1,3 @@
-<wxs module="tool" src="./tool.wxs"></wxs>
 <view class="form-container">
 	<view class="form-item">
     <mp-cells ext-class="item-cell">
@@ -9,7 +8,7 @@
   </view>
 	<view class="form-item">
     <mp-cells ext-class="item-cell">
-      <mp-cell title="活动名称" >
+      <mp-cell title="活动名称">
         <input class="weui-input"  placeholder="请输入活动名称" />
       </mp-cell>
     </mp-cells>
