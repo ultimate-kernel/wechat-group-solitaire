@@ -3,6 +3,7 @@ const app = getApp() // 全局APP
 let that = null // 页面this指针
 Page({
   data: {
+    date:'',
     project: {},
     input: {},
     form: {
@@ -174,7 +175,13 @@ Page({
       path: `pages/index/index?id=${that.id||'INIT'}`,
       imageUrl: that.data.project.topimg
     }
-  }
+  },
+  bindDateChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
+  },
 })
 
 function showModal (content, title = '', obj = {}) {

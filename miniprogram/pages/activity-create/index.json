@@ -1,5 +1,6 @@
 {
 	"usingComponents": {
+    "mp-form-page": "weui-miniprogram/form-page/form-page",
     "mp-form": "weui-miniprogram/form/form",
 		"mp-icon": "weui-miniprogram/icon/icon",
 		"mp-cells": "weui-miniprogram/cells/cells",
