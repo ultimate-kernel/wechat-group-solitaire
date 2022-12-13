@@ -3,17 +3,30 @@ const app = getApp() // 全局APP
 let that = null // 页面this指针
 Page({
   data: {
-    date:'',
     project: {},
     input: {},
     form: {
+      peopleNum:20,
+      date:'',
+      time:'',
       position: {
         latitude: 23.100116, // 地图定位标准纬度
         longitude: 113.324592, // 地图定位标准经度
         address: '' // 地图展示的地理名字
       },
-      show: false
-    }
+      carLocationGroup:[
+        {name: '莲花北', value: '莲花北', checked: true},
+        {name: '罗湖体育馆', value: '罗湖体育馆'}] // 上车地点
+    },
+    showDialog: false,
+    buttons: [
+        {
+          type: 'primary',
+          className: '',
+          text: '确定',
+          value: 1
+        }
+    ]
   },
   onLoad (options) {
     that = this // 页面this指向指针变量
@@ -57,6 +70,14 @@ Page({
     }
     wx.hideLoading()
     wx.stopPullDownRefresh()
+  },
+  open: function () {
+    this.setData({
+      showDialog: true
+    })
+  },
+  buttontap(e) {
+      console.log(e.detail)
   },
   openLocation (e) {
     const {
