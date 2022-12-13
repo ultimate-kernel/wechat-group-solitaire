@@ -7,12 +7,14 @@ Page({
     project: {},
     input: {},
     form: {
+      position: {
+        latitude: 23.100116, // 地图定位标准纬度
+        longitude: 113.324592, // 地图定位标准经度
+        address: '' // 地图展示的地理名字
+      },
       show: false
     }
   },
-  /**
-   * 页面加载
-   */
   onLoad (options) {
     that = this // 页面this指向指针变量
     that.id = options.id
@@ -60,9 +62,20 @@ Page({
     const {
       info
     } = e.currentTarget.dataset
-    wx.openLocation({
+    wx.chooseLocation({
       ...info,
-      scale: 13
+      scale: 13,
+      complete:function(res){
+        that.setData(
+          {
+           form:{
+              position:{
+                address:res.address
+              }
+           }
+          }
+        )
+      }
     })
   },
   ininput (e) {
@@ -183,29 +196,3 @@ Page({
     })
   },
 })
-
-function showModal (content, title = '', obj = {}) {
-  return new Promise((resolve) => {
-    wx.showModal({
-      cancelText: obj.cancelText || '取消',
-      confirmColor: that.data.project?.style?.backgroudColor || '#07c041',
-      confirmText: obj.confirmText || '确定',
-      title: title,
-      content: content,
-      editable: obj.editable || false,
-      placeholderText: obj.placeholderText || '',
-      showCancel: obj.showCancel,
-      success (res) {
-        if (res.confirm) {
-          resolve(res.content || true)
-        } else {
-          resolve(false)
-        }
-      },
-      fail (e) {
-        console.log(e)
-        resolve(false)
-      }
-    })
-  })
-}

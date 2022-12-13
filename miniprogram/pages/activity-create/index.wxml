@@ -1,20 +1,20 @@
 <view class="form-container">
-  <mp-form-page title="创建活动信息">
+  <mp-form-page title="活动信息">
     <mp-form id="form">
       <mp-cells>
         <mp-cell title="活动名称">
           <input placeholder="请输入活动名称" />
         </mp-cell>
-        <mp-cell title="活动地点">
-          <input placeholder="请输入活动地点" />
+        <mp-cell title="活动地址" link bindtap="openLocation" data-info="{{form.position}}">
+          <input model:value="{{form.position.address}}" placeholder="请选择活动地址" />
         </mp-cell>
          <mp-cell title="活动人数">
           <input placeholder="请输入活动人数上限" />
         </mp-cell>
         <mp-cell title="注意事项">
-          <input placeholder="注意事项" />
+          <input placeholder="请输入注意事项"/>
         </mp-cell>
-        <mp-cell title="集合日期">
+        <mp-cell title="活动日期">
          <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
             <view wx:if="{{date}}" class="picker">{{date}}</view>
             <view wx:else class="picker">选择日期</view>
