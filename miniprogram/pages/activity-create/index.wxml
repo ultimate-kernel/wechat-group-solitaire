@@ -8,6 +8,9 @@
         <mp-cell title="活动地点">
           <input placeholder="请输入活动地点" />
         </mp-cell>
+         <mp-cell title="活动人数">
+          <input placeholder="请输入活动人数上限" />
+        </mp-cell>
         <mp-cell title="注意事项">
           <input placeholder="注意事项" />
         </mp-cell>
