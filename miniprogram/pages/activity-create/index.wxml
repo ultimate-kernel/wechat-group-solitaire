@@ -26,11 +26,9 @@
             <view wx:else class="picker">选择时间</view>
           </picker>
         </mp-cell>
-      </mp-cells>
-      <mp-cells title="上车地点"  bindtap="open">
-          <mp-checkbox-group prop="checkbox" multi="{{true}}" bindchange="checkboxChange">
-              <mp-checkbox wx:for="{{form.carLocationGroup}}" wx:key="value" label="{{item.name}}" value="{{item.value}}" checked="{{item.checked}}"></mp-checkbox>
-          </mp-checkbox-group>
+        <mp-cell title="上车地点">
+          <mp-slideview ext-class="slideview-item" wx:for="{{form.carLocationGroup}}" buttons="{{slidevButtons}}">222</mp-slideview>
+        </mp-cell>
       </mp-cells>
     </mp-form>
     <view slot="button">

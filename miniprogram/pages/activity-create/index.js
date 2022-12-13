@@ -26,6 +26,16 @@ Page({
           text: '确定',
           value: 1
         }
+    ],
+    slidevButtons:[
+      {
+
+          type: 'warn',
+          className: '',
+          text: '删除',
+          value: 1
+
+      }
     ]
   },
   onLoad (options) {
