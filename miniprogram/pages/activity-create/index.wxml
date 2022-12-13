@@ -8,8 +8,15 @@
   </view>
 	<view class="form-item">
     <mp-cells ext-class="item-cell">
-      <mp-cell title="活动名称">
-        <input class="weui-input"  placeholder="请输入活动名称" />
+      <mp-cell title="活动地点">
+        <input class="weui-input"  placeholder="请选择或输入活动地点" />
+      </mp-cell>
+    </mp-cells>
+  </view>
+  <view class="form-item">
+    <mp-cells ext-class="item-cell">
+      <mp-cell title="活动时间">
+        <input class="weui-input"  placeholder="请选择活动时间" />
       </mp-cell>
     </mp-cells>
   </view>
