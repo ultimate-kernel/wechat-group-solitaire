@@ -5,30 +5,30 @@
         <mp-cell title="活动名称">
           <input placeholder="请输入活动名称" />
         </mp-cell>
-        <mp-cell title="活动地址" link bindtap="chooseLocation" data-info="{{form.position}}">
-          <input model:value="{{form.position.address}}" placeholder="请选择活动地址" />
+        <mp-cell title="活动地址" link bindtap="chooseLocation" data-info="{{position}}">
+          <input model:value="{{position.address}}" placeholder="请选择活动地址" />
         </mp-cell>
         <mp-cell title="活动人数">
-          <input model:value="{{form.peopleNum}}" placeholder="活动人数上限" />
+          <input model:value="{{peopleNum}}" placeholder="活动人数上限" />
         </mp-cell>
         <mp-cell title="注意事项">
           <input placeholder="活动注意事项" />
         </mp-cell>
         <mp-cell title="活动日期">
-          <picker mode="date" value="{{form.date}}" bindchange="bindDateChange">
-            <view wx:if="{{form.date}}" class="picker">{{form.date}}</view>
-            <view wx:else class="picker">选择日期</view>
+          <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+            <view wx:if="{{date}}" class="picker">{{date}}</view>
+            <view wx:else>选择日期</view>
           </picker>
         </mp-cell>
         <mp-cell title="集合时间">
-          <picker mode="time" value="{{form.time}}" start="09:01" end="21:01" bindchange="bindDateChange">
-            <view wx:if="{{form.time}}" class="picker">{{form.time}}</view>
-            <view wx:else class="picker">选择时间</view>
+          <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+            <view wx:if="{{time}}" class="picker">{{time}}</view>
+            <view wx:else>选择时间</view>
           </picker>
         </mp-cell>
         <mp-cell title="上车地点"  bindtap="openDialog" link>
-          <mp-slideview ext-class="slideview-item" wx:for="{{form.carLocationGroup}}" buttons="{{slidevButtons}}">
-            <text>{{item}}</text>
+          <mp-slideview ext-class="slideview-item" wx:for="{{carLocationGroup}}" wx:key="value" buttons="{{slidevButtons}}">
+            <text>1</text>
           </mp-slideview>
         </mp-cell>
       </mp-cells>
@@ -38,7 +38,7 @@
     </view>
   </mp-form-page>
 </view>
-<mp-half-screen-dialog bindbuttontap="buttontap" show="{{showDialog}}" maskClosable="{{false}}" title="添加上车地点" buttons="{{buttons}}">
+<mp-half-screen-dialog bindbuttontap="bindCarLocationTap" show="{{showDialog}}" maskClosable="{{false}}" title="添加上车地点" buttons="{{buttons}}">
   <mp-cells slot="desc">
     <mp-cell title="">
       <input placeholder="输入上车地点" />

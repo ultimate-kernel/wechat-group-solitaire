@@ -27,6 +27,11 @@ page {
   padding: 5px 0 5px 0px;
   text-indent: 10px;
 }
+
+.slideview-item:last-child{
+  margin-bottom: 0;
+}
+
 .weui-slideview__btn{
   padding: 5px 0 5px 0px;
 }

@@ -3,19 +3,15 @@ const app = getApp() // 全局APP
 let that = null // 页面this指针
 Page({
   data: {
-    project: {},
-    input: {},
-    form: {
-      peopleNum:20,
-      date:'',
-      time:'',
-      position: {
-        latitude: 23.100116, // 地图定位标准纬度
-        longitude: 113.324592, // 地图定位标准经度
-        address: '' // 地图展示的地理名字
-      },
-      carLocationGroup:['莲花北','莲花北'] // 上车地点
+    peopleNum:20,
+    date:'',
+    time:'',
+    position: {
+      latitude: 23.100116, // 地图定位标准纬度
+      longitude: 113.324592, // 地图定位标准经度
+      address: '' // 地图展示的地理名字
     },
+    carLocationGroup:[{name:'莲花北',value:'莲花北'}],
     showDialog: false,
     buttons: [
         {
@@ -37,7 +33,7 @@ Page({
     ]
   },
   onLoad (options) {
-    that = this // 页面this指向指针变量
+    that = this
     that.id = options.id
   },
   openDialog: function () {
@@ -45,7 +41,7 @@ Page({
       showDialog: true
     })
   },
-  buttontap(e) {
+  bindCarLocationTap(e) {
       console.log(e.detail)
   },
   chooseLocation(e) {
@@ -58,11 +54,9 @@ Page({
       complete:function(res){
         that.setData(
           {
-           form:{
-              position:{
-                address:res.address
-              }
-           }
+            position:{
+              address:res.address
+            }
           }
         )
       }
@@ -70,15 +64,21 @@ Page({
   },
   onShareAppMessage () {
     return {
-      title: '活动报名｜' + that.data.project.title,
+      title: '活动报名｜',
       path: `pages/index/index?id=${that.id||'INIT'}`,
-      imageUrl: that.data.project.topimg
+      imageUrl: ''
     }
   },
   bindDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       date: e.detail.value
+    })
+  },
+  bindTimeChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      time: e.detail.value
     })
   },
 })
