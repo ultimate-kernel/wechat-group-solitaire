@@ -8,44 +8,40 @@
         <mp-cell title="活动地址" link bindtap="openLocation" data-info="{{form.position}}">
           <input model:value="{{form.position.address}}" placeholder="请选择活动地址" />
         </mp-cell>
-         <mp-cell title="活动人数">
+        <mp-cell title="活动人数">
           <input model:value="{{form.peopleNum}}" placeholder="活动人数上限" />
         </mp-cell>
         <mp-cell title="注意事项">
-          <input placeholder="活动注意事项"/>
+          <input placeholder="活动注意事项" />
         </mp-cell>
         <mp-cell title="活动日期">
-         <picker mode="date" value="{{form.date}}" bindchange="bindDateChange">
+          <picker mode="date" value="{{form.date}}" bindchange="bindDateChange">
             <view wx:if="{{form.date}}" class="picker">{{form.date}}</view>
             <view wx:else class="picker">选择日期</view>
           </picker>
         </mp-cell>
         <mp-cell title="集合时间">
-         <picker mode="time" value="{{form.time}}" start="09:01" end="21:01" bindchange="bindDateChange">
+          <picker mode="time" value="{{form.time}}" start="09:01" end="21:01" bindchange="bindDateChange">
             <view wx:if="{{form.time}}" class="picker">{{form.time}}</view>
             <view wx:else class="picker">选择时间</view>
           </picker>
         </mp-cell>
-        <mp-cell title="上车地点">
-          <mp-slideview ext-class="slideview-item" wx:for="{{form.carLocationGroup}}" buttons="{{slidevButtons}}">222</mp-slideview>
+        <mp-cell title="上车地点" link bindtap="open">
+          <mp-slideview ext-class="slideview-item" wx:for="{{form.carLocationGroup}}" buttons="{{slidevButtons}}">
+            222
+          </mp-slideview>
         </mp-cell>
       </mp-cells>
     </mp-form>
     <view slot="button">
-        <button class="weui-btn" type="primary" >创建活动</button>
+      <button class="weui-btn" type="primary">创建活动</button>
     </view>
   </mp-form-page>
 </view>
-<mp-half-screen-dialog
-  bindbuttontap="buttontap"
-  show="{{showDialog}}"
-  maskClosable="{{false}}"
-  title="添加上车地点"
-  buttons="{{buttons}}"
->
+<mp-half-screen-dialog bindbuttontap="buttontap" show="{{showDialog}}" maskClosable="{{false}}" title="添加上车地点" buttons="{{buttons}}">
   <mp-cells slot="desc">
     <mp-cell title="">
-      <input placeholder="输入上车地点"/>
+      <input placeholder="输入上车地点" />
     </mp-cell>
   </mp-cells>
 </mp-half-screen-dialog>

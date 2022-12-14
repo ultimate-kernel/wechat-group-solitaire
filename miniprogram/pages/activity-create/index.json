@@ -12,6 +12,6 @@
 	},
 	"navigationBarTitleText": "发布活动",
     "navigationBarBackgroundColor": "#ffffff",
-    "enablePullDownRefresh":true,
+    "enablePullDownRefresh":false,
     "backgroundTextStyle":"light"
 }
