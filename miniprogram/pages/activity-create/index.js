@@ -14,9 +14,7 @@ Page({
         longitude: 113.324592, // 地图定位标准经度
         address: '' // 地图展示的地理名字
       },
-      carLocationGroup:[
-        {name: '莲花北', value: '莲花北', checked: true},
-        {name: '罗湖体育馆', value: '罗湖体育馆'}] // 上车地点
+      carLocationGroup:['莲花北','莲花北'] // 上车地点
     },
     showDialog: false,
     buttons: [
@@ -42,9 +40,7 @@ Page({
     that = this // 页面this指向指针变量
     that.id = options.id
   },
-  onPullDownRefresh () {
-  },
-  open: function () {
+  openDialog: function () {
     this.setData({
       showDialog: true
     })
@@ -52,7 +48,7 @@ Page({
   buttontap(e) {
       console.log(e.detail)
   },
-  openLocation (e) {
+  chooseLocation(e) {
     const {
       info
     } = e.currentTarget.dataset

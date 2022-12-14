@@ -20,7 +20,13 @@ page {
 }
 
 .slideview-item {
-  background: #eee;
+  background: #f5f5f5;
+  font-size: 16px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 5px 0 5px 0px;
   text-indent: 10px;
-  border-bottom: 1px solid #ddd;
+}
+.weui-slideview__btn{
+  padding: 5px 0 5px 0px;
 }

@@ -5,7 +5,7 @@
         <mp-cell title="活动名称">
           <input placeholder="请输入活动名称" />
         </mp-cell>
-        <mp-cell title="活动地址" link bindtap="openLocation" data-info="{{form.position}}">
+        <mp-cell title="活动地址" link bindtap="chooseLocation" data-info="{{form.position}}">
           <input model:value="{{form.position.address}}" placeholder="请选择活动地址" />
         </mp-cell>
         <mp-cell title="活动人数">
@@ -26,9 +26,9 @@
             <view wx:else class="picker">选择时间</view>
           </picker>
         </mp-cell>
-        <mp-cell title="上车地点" link bindtap="open">
+        <mp-cell title="上车地点"  bindtap="openDialog" link>
           <mp-slideview ext-class="slideview-item" wx:for="{{form.carLocationGroup}}" buttons="{{slidevButtons}}">
-            222
+            <text>{{item}}</text>
           </mp-slideview>
         </mp-cell>
       </mp-cells>
