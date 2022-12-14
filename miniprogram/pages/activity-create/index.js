@@ -3,7 +3,7 @@ const app = getApp() // 全局APP
 let that = null // 页面this指针
 Page({
   data: {
-    peopleNum:20,
+    peopleLimit:20,
     date:'',
     time:'',
     position: {
@@ -81,4 +81,11 @@ Page({
       time: e.detail.value
     })
   },
+  bindCreateTap: function(e) {
+    console.log(this.data)
+  },
+  // 删除上车地点
+  bindSlideviewTap: function(e) {
+
+  }
 })

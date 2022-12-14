@@ -9,7 +9,7 @@
           <input model:value="{{position.address}}" placeholder="请选择活动地址" />
         </mp-cell>
         <mp-cell title="活动人数">
-          <input model:value="{{peopleNum}}" placeholder="活动人数上限" />
+          <input model:value="{{peopleLimit}}" placeholder="活动人数上限" />
         </mp-cell>
         <mp-cell title="注意事项">
           <input placeholder="活动注意事项" />
@@ -27,14 +27,14 @@
           </picker>
         </mp-cell>
         <mp-cell title="上车地点"  bindtap="openDialog" link>
-          <mp-slideview ext-class="slideview-item" wx:for="{{carLocationGroup}}" wx:key="value" buttons="{{slidevButtons}}">
+          <mp-slideview ext-class="slideview-item" wx:for="{{carLocationGroup}}" wx:key="value" buttons="{{slidevButtons}}" bindbuttontap="bindSlideviewTap">
             <text>1</text>
           </mp-slideview>
         </mp-cell>
       </mp-cells>
     </mp-form>
     <view slot="button">
-      <button class="weui-btn" type="primary">创建活动</button>
+      <button class="weui-btn" type="primary" bindtap="bindCreateTap">创建活动</button>
     </view>
   </mp-form-page>
 </view>
