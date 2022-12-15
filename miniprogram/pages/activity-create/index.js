@@ -3,33 +3,31 @@ const app = getApp() // 全局APP
 let that = null // 页面this指针
 Page({
   data: {
-    peopleLimit:20,
-    date:'',
-    time:'',
+    peopleLimit: 20,
+    date: '',
+    time: '',
     position: {
-      latitude: 23.100116, // 地图定位标准纬度
-      longitude: 113.324592, // 地图定位标准经度
-      address: '' // 地图展示的地理名字
+      latitude: 23.100116,
+      longitude: 113.324592,
+      address: ''
     },
     carLocationGroup: ['莲花北'],
     carLocationInput: '',
     showDialog: false,
     dialogButtons: [
-        {
-          type: 'primary',
-          className: '',
-          text: '确定',
-          value: 1
-        }
+      {
+        type: 'primary',
+        className: '',
+        text: '确定',
+        value: 1
+      }
     ],
     slidevButtons:[
       {
-
-          type: 'warn',
-          className: '',
-          text: '删除',
-          value: 1
-
+        type: 'warn',
+        className: '',
+        text: '删除',
+        value: 1
       }
     ]
   },
@@ -43,8 +41,7 @@ Page({
       showDialog: true
     })
   },
-  bindAddCarLocationTap(e) {
-      console.log(this.data.carLocationGroup,this.data.carLocationInput)
+  addCarLocationTap(e) {
       this.data.carLocationGroup.push(this.data.carLocationInput)
       this.setData({
         carLocationGroup: this.data.carLocationGroup
@@ -90,16 +87,18 @@ Page({
       time: e.detail.value
     })
   },
+  // 创建活动
   bindCreateTap: function(e) {
     console.log(this.data)
   },
   // 删除上车地点
   bindSlideviewTap: function(e) {
-    console.log(e.detail)
-    const tempCarLocationGroup = this.data.carLocationGroup.splice(e.detail.index,1)
-    console.log('tempCarLocationGroup',this.data.carLocationGroup)
+    const {
+      index
+    } = e.currentTarget.dataset
+    this.data.carLocationGroup.splice(index,1)
     this.setData({
-      carLocationGroup:this.data.carLocationGroup
+      carLocationGroup: this.data.carLocationGroup
     })
   }
 })

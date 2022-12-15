@@ -27,7 +27,7 @@
           </picker>
         </mp-cell>
         <mp-cell title="上车地点"  bindtap="openDialog" link>
-          <mp-slideview ext-class="slideview-item" wx:for="{{carLocationGroup}}" wx:key="item" buttons="{{slidevButtons}}" bindbuttontap="bindSlideviewTap">
+          <mp-slideview ext-class="slideview-item" wx:for="{{carLocationGroup}}" wx:key="index" wx:for-index="idx" data-index="{{idx}}" buttons="{{slidevButtons}}" bindbuttontap="bindSlideviewTap">
             <text>{{item}}</text>
           </mp-slideview>
         </mp-cell>
@@ -38,7 +38,7 @@
     </view>
   </mp-form-page>
 </view>
-<mp-half-screen-dialog bindbuttontap="bindAddCarLocationTap" show="{{showDialog}}" maskClosable="{{true}}" title="添加上车地点" buttons="{{dialogButtons}}">
+<mp-half-screen-dialog bindbuttontap="addCarLocationTap" show="{{showDialog}}" maskClosable="{{true}}" title="添加上车地点" buttons="{{dialogButtons}}">
   <mp-cells slot="desc">
     <mp-cell title="">
       <input model:value="{{carLocationInput}}" placeholder="输入上车地点" />
