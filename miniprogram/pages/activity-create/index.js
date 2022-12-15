@@ -89,7 +89,12 @@ Page({
   },
   // 创建活动
   bindCreateTap: function(e) {
-    console.log(this.data)
+    const formData = {...this.data}
+    delete formData.dialogButtons
+    delete formData.slidevButtons
+    delete formData.carLocationInput
+    delete formData.showDialog
+    console.log(formData)
   },
   // 删除上车地点
   bindSlideviewTap: function(e) {
