@@ -3,7 +3,7 @@ cloud.init({ // 初始化云开发环境
   env: cloud.DYNAMIC_CURRENT_ENV // 当前环境的常量
 })
 const db = cloud.database()
-const name = 'register' // 该模版的标识
+const name = 'activity' // 该模版的标识
 exports.main = async (event, context) => {
   const type = event.type || 'get_project' // 默认的执行方法
   const res = { name }
