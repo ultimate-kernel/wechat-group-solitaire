@@ -6,7 +6,7 @@
           <input placeholder="请输入活动名称" />
         </mp-cell>
         <mp-cell title="活动地址" link bindtap="chooseLocation" data-info="{{position}}">
-          <input model:value="{{position.address}}" placeholder="请选择活动地址" />
+          <input :value="{{position.address}}" placeholder="请选择活动地址" />
         </mp-cell>
         <mp-cell title="活动人数">
           <input model:value="{{peopleLimit}}" placeholder="活动人数上限" />
@@ -27,8 +27,8 @@
           </picker>
         </mp-cell>
         <mp-cell title="上车地点"  bindtap="openDialog" link>
-          <mp-slideview ext-class="slideview-item" wx:for="{{carLocationGroup}}" wx:key="value" buttons="{{slidevButtons}}" bindbuttontap="bindSlideviewTap">
-            <text>1</text>
+          <mp-slideview ext-class="slideview-item" wx:for="{{carLocationGroup}}" wx:key="item" buttons="{{slidevButtons}}" bindbuttontap="bindSlideviewTap">
+            <text>{{item}}</text>
           </mp-slideview>
         </mp-cell>
       </mp-cells>
@@ -38,10 +38,10 @@
     </view>
   </mp-form-page>
 </view>
-<mp-half-screen-dialog bindbuttontap="bindCarLocationTap" show="{{showDialog}}" maskClosable="{{false}}" title="添加上车地点" buttons="{{buttons}}">
+<mp-half-screen-dialog bindbuttontap="bindAddCarLocationTap" show="{{showDialog}}" maskClosable="{{true}}" title="添加上车地点" buttons="{{dialogButtons}}">
   <mp-cells slot="desc">
     <mp-cell title="">
-      <input placeholder="输入上车地点" />
+      <input model:value="{{carLocationInput}}" placeholder="输入上车地点" />
     </mp-cell>
   </mp-cells>
 </mp-half-screen-dialog>

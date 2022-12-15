@@ -11,9 +11,10 @@ Page({
       longitude: 113.324592, // 地图定位标准经度
       address: '' // 地图展示的地理名字
     },
-    carLocationGroup:[{name:'莲花北',value:'莲花北'}],
+    carLocationGroup: ['莲花北'],
+    carLocationInput: '',
     showDialog: false,
-    buttons: [
+    dialogButtons: [
         {
           type: 'primary',
           className: '',
@@ -38,11 +39,19 @@ Page({
   },
   openDialog: function () {
     this.setData({
+      carLocationInput:'',
       showDialog: true
     })
   },
-  bindCarLocationTap(e) {
-      console.log(e.detail)
+  bindAddCarLocationTap(e) {
+      console.log(this.data.carLocationGroup,this.data.carLocationInput)
+      this.data.carLocationGroup.push(this.data.carLocationInput)
+      this.setData({
+        carLocationGroup: this.data.carLocationGroup
+      })
+      this.setData({
+        showDialog: false
+      })
   },
   chooseLocation(e) {
     const {
@@ -86,6 +95,11 @@ Page({
   },
   // 删除上车地点
   bindSlideviewTap: function(e) {
-
+    console.log(e.detail)
+    const tempCarLocationGroup = this.data.carLocationGroup.splice(e.detail.index,1)
+    console.log('tempCarLocationGroup',this.data.carLocationGroup)
+    this.setData({
+      carLocationGroup:this.data.carLocationGroup
+    })
   }
 })
