@@ -1,11 +1,16 @@
 {
 	"usingComponents": {
+    "mp-form-page": "weui-miniprogram/form-page/form-page",
+    "mp-form": "weui-miniprogram/form/form",
 		"mp-icon": "weui-miniprogram/icon/icon",
-		"mp-half-screen-dialog": "weui-miniprogram/half-screen-dialog/half-screen-dialog",
+    "mp-checkbox-group": "weui-miniprogram/checkbox-group/checkbox-group",
+    "mp-checkbox": "weui-miniprogram/checkbox/checkbox",
 		"mp-cells": "weui-miniprogram/cells/cells",
-    "mp-cell": "weui-miniprogram/cell/cell"
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "mp-slideview": "weui-miniprogram/slideview/slideview",
+    "mp-half-screen-dialog": "weui-miniprogram/half-screen-dialog/half-screen-dialog"
 	},
-	"navigationBarTitleText": "我的",
+	"navigationBarTitleText": "我的活动",
     "navigationBarBackgroundColor": "#ffffff",
     "enablePullDownRefresh":true,
     "backgroundTextStyle":"light"

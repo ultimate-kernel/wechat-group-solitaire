@@ -1,34 +1,9 @@
-<wxs module="tool" src="./tool.wxs"></wxs>
-<view class="container {{form.show==true?'noscroll':''}}" style="{{stylecss}}" wx:if="{{project._id!=null}}">
-	<view class="top_model">
-		<image mode="aspectFill" src="{{project.topimg}}"></image>
-		<view class="title">{{project.title}}</view>
-	</view>
-	<view class="info_model">
-		<view class="item arrow_model" bindtap="openLocation" data-info="{{project.position}}">
-			<mp-icon class="icon" icon="location" color="{{project.style.backgroudColor||'#343434'}}" size="{{20}}"></mp-icon>
-			<view class="content">{{project.position.address}}</view>
-			<mp-icon class="arrow" icon="arrow" color="#787878" size="{{15}}"></mp-icon>
-		</view>
-		<view class="item">
-			<mp-icon class="icon" icon="time" color="{{project.style.backgroudColor||'#343434'}}" size="{{20}}"></mp-icon>
-			<view class="content">{{project.activity_due[0]}} - {{project.activity_due[1]}}</view>
-		</view>
-		<view class="item arrow_model" bindtap="tosignlist">
-			<mp-icon class="icon" icon="group-detail" color="{{project.style.backgroudColor||'#343434'}}" size="{{20}}"></mp-icon>
-			<view class="content">报名人数限额1：{{(project.people_number!=null&&project.people_number>0)?project.people_number+'人':'不限'}} / 已报名：{{sign_num||0}}人</view>
-			<mp-icon class="arrow" icon="arrow" color="#787878" size="{{15}}"></mp-icon>
-		</view>
-		<view class="item">
-			<mp-icon class="icon" icon="done2" color="{{project.style.backgroudColor||'#343434'}}" size="{{20}}"></mp-icon>
-			<view class="content">{{tool.execTime(project.signup_due).text}}</view>
-		</view>
-		<view class="item">
-			<mp-icon class="icon" icon="error" color="{{project.style.backgroudColor||'#343434'}}" size="{{20}}"></mp-icon>
-			<view class="content">{{project.des}}</view>
-		</view>
-		<view class="item">
-			<button class="sign_btn" bindtap="startsign" disabled="{{tool.signBtnstatus(user.open,project.signup_due).disable}}">{{tool.signBtnstatus(user.open,project.signup_due).text}}</button>
-		</view>
-	</view>
+<view class="container">
+  <view class="activity-list">
+    <mp-cells>
+      <mp-cell title="活动" wx:for="{{activityList}}" wx:key="index" wx:for-index="idx" link>
+        <text>{{item.activityTitle || '---'}}</text>
+      </mp-cell>
+    </mp-cells>
+  </view>
 </view>

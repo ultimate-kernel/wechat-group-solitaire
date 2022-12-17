@@ -30,10 +30,14 @@ Page({
       }
     ]
   },
-  onLoad (options) {
+  onLoad (query) {
     that = this
-    that.id = options.id
+    that.id = query.id
   },
+  onPullDownRefresh () {
+    that.init()
+  },
+  init: function () {},
   openDialog: function () {
     this.setData({
       carLocationInput:'',
