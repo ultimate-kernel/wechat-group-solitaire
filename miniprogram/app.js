@@ -48,14 +48,14 @@ App({
     try {
       const cloud = await this.cloud()
       const res = await cloud.callFunction({ // 调用云函数
-        name: 'quickstartFunctions', // 应用唯一的服务函数
+        name: 'wechat-group-solitaire-cloud', // 应用唯一的服务函数
         data: {
           type: obj.name, // 传入name为type
           data: obj.data // 传入data为data
         }
       })
       console.log('【云函数调用成功】', res)
-      if (res.result.name === 'register') {
+      if (res.result.name === 'registration') {
         if (res.result.data !== false) { // 如果返回值不为false，则证明正常访问
           return res.result.data
         } else { // 否则
