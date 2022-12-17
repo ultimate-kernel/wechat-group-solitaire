@@ -98,8 +98,24 @@ Page({
     delete formData.slidevButtons
     delete formData.carLocationInput
     delete formData.showDialog
+    delete formData.showDialog
+    delete formData.__webviewId__
     console.log(formData)
-    const submitres = await app.call({ name: 'add_activity', data: { formData } })
+    wx.showLoading({ title: '提交中' })
+    const res = await app.call({ name: 'add_activity', data: { formData } })
+    wx.hideLoading()
+    if(res.code === 0) {
+      wx.showToast({
+        title: '创建成功',
+        icon: 'success',
+        duration: 2000,
+        success: function() {
+          wx.navigateTo({
+            url: '../activity-details/index?id='+res.data._id
+          })
+        }
+      })
+    }
   },
   // 删除上车地点
   bindSlideviewTap: function(e) {
