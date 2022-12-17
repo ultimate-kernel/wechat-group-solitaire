@@ -1,0 +1,17 @@
+{
+	"usingComponents": {
+    "mp-form-page": "weui-miniprogram/form-page/form-page",
+    "mp-form": "weui-miniprogram/form/form",
+		"mp-icon": "weui-miniprogram/icon/icon",
+    "mp-checkbox-group": "weui-miniprogram/checkbox-group/checkbox-group",
+    "mp-checkbox": "weui-miniprogram/checkbox/checkbox",
+		"mp-cells": "weui-miniprogram/cells/cells",
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "mp-slideview": "weui-miniprogram/slideview/slideview",
+    "mp-half-screen-dialog": "weui-miniprogram/half-screen-dialog/half-screen-dialog"
+	},
+	"navigationBarTitleText": "发布活动",
+    "navigationBarBackgroundColor": "#ffffff",
+    "enablePullDownRefresh":false,
+    "backgroundTextStyle":"light"
+}
