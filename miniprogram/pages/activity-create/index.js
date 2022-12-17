@@ -31,9 +31,11 @@ Page({
       }
     ]
   },
-  onLoad (options) {
+  async onLoad (options) {
     that = this
     that.id = options.id
+    app.call({ name: 'get_activity', data: { id: 'eef21281639d847e0041f1b60eba4990'} })
+    app.call({ name: 'get_activity_list', data: { } })
   },
   openDialog: function () {
     this.setData({
