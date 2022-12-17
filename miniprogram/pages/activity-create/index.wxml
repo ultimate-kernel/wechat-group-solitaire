@@ -6,7 +6,7 @@
           <input placeholder="请输入活动名称" />
         </mp-cell>
         <mp-cell title="活动地址" link bindtap="chooseLocation" data-info="{{position}}">
-          <input :value="{{position.address}}" placeholder="请选择活动地址" />
+          <input model:value="{{position.name}}" placeholder="请选择活动地址" />
         </mp-cell>
         <mp-cell title="活动人数">
           <input model:value="{{peopleLimit}}" placeholder="活动人数上限" />

@@ -27,7 +27,7 @@ App({
       if (normalinfo.length !== 0 && normalinfo[0].envId != null) { // 如果文件中 envlist 存在
         wx.cloud.init({ // 初始化云开发环境
           traceUser: true,
-          env: normalinfo[0].envId
+          env: 'cloud1-6gtmbwrn371ad3f5'
         })
         // 装载云函数操作对象返回方法
         this.cloud = async () => {

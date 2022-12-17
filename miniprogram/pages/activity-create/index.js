@@ -11,8 +11,8 @@ Page({
       longitude: 113.324592,
       address: ''
     },
-    carLocationGroup: ['莲花北'],
-    carLocationInput: '',
+    carLocationGroup: [], // 上车地点列表
+    carLocationInput: '', // 上车地点添加
     showDialog: false,
     dialogButtons: [
       {
@@ -22,7 +22,7 @@ Page({
         value: 1
       }
     ],
-    slidevButtons:[
+    slidevButtons: [
       {
         type: 'warn',
         className: '',
@@ -58,10 +58,14 @@ Page({
       ...info,
       scale: 13,
       complete:function(res){
+        console.log(res)
         that.setData(
           {
-            position:{
-              address:res.address
+            position: {
+              name: res.name,
+              latitude: res.latitude,
+              longitude: res.longitude,
+              address: res.address
             }
           }
         )
@@ -88,13 +92,14 @@ Page({
     })
   },
   // 创建活动
-  bindCreateTap: function(e) {
+  bindCreateTap: async function(e) {
     const formData = {...this.data}
     delete formData.dialogButtons
     delete formData.slidevButtons
     delete formData.carLocationInput
     delete formData.showDialog
     console.log(formData)
+    const submitres = await app.call({ name: 'add_activity', data: { formData } })
   },
   // 删除上车地点
   bindSlideviewTap: function(e) {
