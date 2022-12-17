@@ -3,7 +3,7 @@
     <mp-form id="form">
       <mp-cells>
         <mp-cell title="活动名称">
-          <input model:value="{{actvityTitle}}" placeholder="请输入活动名称" />
+          <input model:value="{{activityTitle}}" placeholder="请输入活动名称" />
         </mp-cell>
         <mp-cell title="活动地址" link bindtap="chooseLocation" data-info="{{position}}">
           <input model:value="{{position.name}}" readonly placeholder="请选择活动地址" />
@@ -12,7 +12,7 @@
           <input model:value="{{peopleLimit}}" placeholder="活动人数上限" />
         </mp-cell>
         <mp-cell title="注意事项">
-          <input model:value="{{actvityDesc}}" placeholder="活动注意事项" />
+          <input model:value="{{activityDesc}}" placeholder="活动注意事项" />
         </mp-cell>
         <mp-cell title="活动日期">
           <picker mode="date" value="{{date}}" bindchange="bindDateChange">

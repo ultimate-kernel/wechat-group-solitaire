@@ -14,7 +14,7 @@ Page({
   },
   init: async function () {
     wx.showLoading()
-    const res = await app.call({ name: 'get_activity_list', data: {} })
+    const res = await app.call({ name: 'get_activity_list', data: {} }) || {}
     if(res.code === 0) {
       this.activityList = res.data || []
       this.setData({
@@ -23,4 +23,10 @@ Page({
     }
     wx.hideLoading()
   },
+  goActivityDetail: function(e){
+    const {item} = e.currentTarget.dataset
+    wx.navigateTo({
+      url: '../activity-details/index?id='+item._id
+    })
+  }
 })

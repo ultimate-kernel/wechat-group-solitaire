@@ -3,45 +3,46 @@
     <mp-form id="form">
       <mp-cells>
         <mp-cell title="活动名称">
-          <input placeholder="请输入活动名称" />
+          <text>{{activityTitle}}</text>
         </mp-cell>
-        <mp-cell title="活动地址" link bindtap="chooseLocation" data-info="{{position}}">
-          <input :value="{{position.address}}" placeholder="请选择活动地址" />
+        <mp-cell title="活动地址" link bindtap="openLocation" data-info="{{position}}">
+          <text>{{position.address}}</text>
         </mp-cell>
         <mp-cell title="活动人数">
           <input model:value="{{peopleLimit}}" placeholder="活动人数上限" />
         </mp-cell>
         <mp-cell title="注意事项">
-          <input placeholder="活动注意事项" />
+          <text >{{activityDesc}}</text>
         </mp-cell>
         <mp-cell title="活动日期">
-          <picker mode="date" value="{{date}}" bindchange="bindDateChange">
-            <view wx:if="{{date}}" class="picker">{{date}}</view>
-            <view wx:else>选择日期</view>
-          </picker>
+          <text>{{date}}</text>
         </mp-cell>
         <mp-cell title="集合时间">
-          <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
-            <view wx:if="{{time}}" class="picker">{{time}}</view>
-            <view wx:else>选择时间</view>
-          </picker>
+           <text>{{time}}</text>
         </mp-cell>
-        <mp-cell title="上车地点"  bindtap="openDialog" link>
-          <mp-slideview ext-class="slideview-item" wx:for="{{carLocationGroup}}" wx:key="index" wx:for-index="idx" data-index="{{idx}}" buttons="{{slidevButtons}}" bindbuttontap="bindSlideviewTap">
+        <mp-cell title="上车地点"  bindtap="openDialog">
+          <block ext-class="slideview-item" wx:for="{{carLocationGroup}}" wx:key="index" wx:for-index="idx" data-index="{{idx}}" buttons="{{slidevButtons}}" bindbuttontap="bindSlideviewTap">
             <text>{{item}}</text>
-          </mp-slideview>
+          </block>
         </mp-cell>
       </mp-cells>
     </mp-form>
     <view slot="button">
-      <button class="weui-btn" type="primary" bindtap="bindCreateTap">创建活动</button>
+      <button class="weui-btn" type="primary" bindtap="addRegistrationTap">报名</button>
     </view>
   </mp-form-page>
 </view>
-<mp-half-screen-dialog bindbuttontap="addCarLocationTap" show="{{showDialog}}" maskClosable="{{true}}" title="添加上车地点" buttons="{{dialogButtons}}">
+<mp-half-screen-dialog bindbuttontap="confirmRegistrationTap" show="{{showDialog}}" maskClosable="{{true}}" title="确认报名信息" buttons="{{dialogButtons}}">
   <mp-cells slot="desc">
-    <mp-cell title="">
-      <input model:value="{{carLocationInput}}" placeholder="输入上车地点" />
+    <mp-cell title="报名名称">
+      <input model:value="{{nickName}}" placeholder="输入报名名称" />
+    </mp-cell>
+    <mp-cell title="上车地点">
+      <radio-group bindchange="radioChange">
+        <radio wx:for="{{carLocationGroup}}" wx:key="index" value="{{item}}">
+          {{item}}
+        </radio>
+      </radio-group>
     </mp-cell>
   </mp-cells>
 </mp-half-screen-dialog>

@@ -1,18 +1,18 @@
-const app = getApp() // 全局APP
-let that = null // 页面this指针
+const app = getApp()
+let that = null
 Page({
   data: {
-    peopleLimit: 20,
+    activityTitle:'',
+    activityDesc:'',
+    peopleLimit: 0 ,
     date: '',
     time: '',
     position: {
-      latitude: 23.100116,
-      longitude: 113.324592,
+      latitude: 0,
+      longitude: 0,
       address: ''
     },
-    carLocationGroup: ['莲花北'],
-    carLocationInput: '',
-    showDialog: false,
+    carLocationGroup: [],
     dialogButtons: [
       {
         type: 'primary',
@@ -21,92 +21,72 @@ Page({
         value: 1
       }
     ],
-    slidevButtons:[
-      {
-        type: 'warn',
-        className: '',
-        text: '删除',
-        value: 1
-      }
-    ]
+    nickName:'',
+    selectedCarLocation: ''
   },
   onLoad (query) {
     that = this
     that.id = query.id
+    wx.startPullDownRefresh()
   },
   onPullDownRefresh () {
     that.init()
   },
-  init: function () {},
-  openDialog: function () {
-    this.setData({
-      carLocationInput:'',
-      showDialog: true
-    })
-  },
-  addCarLocationTap(e) {
-      this.data.carLocationGroup.push(this.data.carLocationInput)
+  async init() {
+    wx.showLoading()
+    const res = await app.call({ name: 'get_activity', data: {id:that.id} })
+    if(res.code === 0) {
+      const formData = res.data
       this.setData({
-        carLocationGroup: this.data.carLocationGroup
+        activityTitle:formData.activityTitle,
+        activityDesc:formData.activityDesc,
+        peopleLimit: formData.peopleLimit ,
+        date: formData.date,
+        time: formData.time,
+        position: {
+          latitude: formData.position.latitude,
+          longitude: formData.position.longitude,
+          address:  formData.position.address
+        },
+        carLocationGroup: formData.carLocationGroup,
       })
-      this.setData({
-        showDialog: false
-      })
+    }
+    wx.hideLoading()
   },
-  chooseLocation(e) {
+  openLocation(e) {
     const {
       info
     } = e.currentTarget.dataset
-    wx.chooseLocation({
+    wx.openLocation({
       ...info,
-      scale: 13,
-      complete:function(res){
-        that.setData(
-          {
-            position:{
-              address:res.address
-            }
-          }
-        )
-      }
+      scale: 13
     })
   },
   onShareAppMessage () {
     return {
       title: '活动报名｜',
-      path: `pages/index/index?id=${that.id||'INIT'}`,
+      path: `pages/activity-details/index?id=${that.id||'INIT'}`,
       imageUrl: ''
     }
   },
-  bindDateChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+  addRegistrationTap(){
+      wx.getUserInfo({
+        withCredentials:false,
+        lang: 'zh_CN',
+        success:function(res){
+          console.log(res)
+          that.setData({
+            nickName:res.userInfo.nickName
+          })
+        }
+      })
+      this.setData({
+        showDialog:true
+      })
+  },
+  confirmRegistrationTap(){
     this.setData({
-      date: e.detail.value
+      showDialog:false
     })
   },
-  bindTimeChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      time: e.detail.value
-    })
-  },
-  // 创建活动
-  bindCreateTap: function(e) {
-    const formData = {...this.data}
-    delete formData.dialogButtons
-    delete formData.slidevButtons
-    delete formData.carLocationInput
-    delete formData.showDialog
-    console.log(formData)
-  },
-  // 删除上车地点
-  bindSlideviewTap: function(e) {
-    const {
-      index
-    } = e.currentTarget.dataset
-    this.data.carLocationGroup.splice(index,1)
-    this.setData({
-      carLocationGroup: this.data.carLocationGroup
-    })
-  }
 })

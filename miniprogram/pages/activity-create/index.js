@@ -3,8 +3,8 @@ const app = getApp() // 全局APP
 let that = null // 页面this指针
 Page({
   data: {
-    actvityTitle: '1',
-    actvityDesc: '222',
+    activityTitle: '1',
+    activityDesc: '222',
     peopleLimit: 20,
     date: '',
     time: '',
