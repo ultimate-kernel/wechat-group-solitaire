@@ -1,5 +1,5 @@
 /**
- * 新增活动信息
+ * 获取活动信息
  */
 module.exports = async function (event, content, cloud) {
   const db = cloud.database()
