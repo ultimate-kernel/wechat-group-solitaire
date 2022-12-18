@@ -23,7 +23,8 @@ Page({
       }
     ],
     nickName:'',
-    selectedCarLocation: ''
+    selectedCarLocation: '',
+    isSignUp: false
   },
   onLoad (query) {
     that = this
@@ -35,9 +36,13 @@ Page({
     const res = await app.call({ name: 'get_activity', data: {id:that.id} })
     if(res.code === 0) {
       const formData = res.data
+      this.isSignUp = false
+      if( formData.signupList &&  formData.signupList.some(item=>item.openId === app.OPENID)){
+        this.isSignUp = true
+      }
       this.setData({
         activityTitle:formData.activityTitle,
-        activityDesc:formData.activityDesc,
+        activityDesc:formData.activityDesc || '',
         peopleLimit: formData.peopleLimit ,
         date: formData.date,
         time: formData.time,
@@ -47,7 +52,8 @@ Page({
           address:  formData.position.address
         },
         carLocationGroup: formData.carLocationGroup,
-        signupList: formData.signupList || []
+        signupList: formData.signupList || [],
+        isSignUp: this.isSignUp
       })
     }
     wx.hideLoading()
@@ -77,6 +83,29 @@ Page({
     this.setData({
       showDialog:false
     })
-    await app.call({ name: 'add_activity_user', data: {id: that.id}})
+    await app.call({ name: 'add_activity_user', data: {id: that.id,nickName:that.nickName,selectedCarLocation:that.selectedCarLocation}})
+    wx.showToast({
+      title: '报名成功',
+      icon: 'success',
+      duration: 2000,
+      success: function() {
+        that.init()
+      }
+    })
   },
+  async cancelRegistrationTap(){
+    await app.call({ name: 'delete_activity_user', data: {id: that.id}})
+    wx.showToast({
+      title: '取消成功',
+      icon: 'success',
+      duration: 2000,
+      success: function() {
+        that.init()
+      }
+    })
+  },
+  bindRadioChange(e){
+    const value = e.detail.value
+    this.selectedCarLocation = value
+  }
 })

@@ -4,12 +4,12 @@
 module.exports = async function (event, content, cloud) {
   const db = cloud.database()
   const _ = db.command
-	const { id } = event.data || {}
+	const { id,nickName,selectedCarLocation } = event.data || {}
   const OPENID = cloud.getWXContext().OPENID
 	const res = {}
   res.data = await db.collection('registration_activity').doc(id).update({
     data:{
-      signupList:_.push({nickName:'xxx',openId:OPENID,selectedCarLocation:'xxx'})
+      signupList:_.push({nickName,openId:OPENID,selectedCarLocation})
     }
   })
   console.log('add_registration_activity_user_res',res)

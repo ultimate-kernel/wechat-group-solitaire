@@ -4,16 +4,17 @@
 module.exports = async function (event, content, cloud) {
   const db = cloud.database()
   const _ = db.command
-	const { formData } = event.data || {}
+	const { id } = event.data || {}
   const OPENID = cloud.getWXContext().OPENID
 	const res = {}
-	res.data = await db.collection('registration_activity').add({
-    data: {
-      openid: OPENID,
-      ...formData
+  const activityInfo = await db.collection('registration_activity').doc(id).get()
+  const filterSignList = activityInfo.data.signupList.filter(item=>item.openId!== OPENID)
+  res.data = await db.collection('registration_activity').doc(id).update({
+    data:{
+      signupList:_.set(filterSignList)
     }
   })
-  console.log('add_activity_res',res)
+  console.log('delete_activity_user',res)
   res.code = 0
   return res
 }
