@@ -8,7 +8,7 @@
         <mp-cell title="活动地址" link bindtap="openLocation" data-info="{{position}}">
           <text>{{position.address}}</text>
         </mp-cell>
-        <mp-cell title="活动人数" link>
+        <mp-cell title="活动人数" link bindtap="goUserList">
           <text>已报名{{signupList.length||0}}/{{peopleLimit}}</text>
         </mp-cell>
         <mp-cell title="注意事项">

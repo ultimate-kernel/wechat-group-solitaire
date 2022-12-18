@@ -107,5 +107,10 @@ Page({
   bindRadioChange(e){
     const value = e.detail.value
     this.selectedCarLocation = value
+  },
+  goUserList(){
+    wx.navigateTo({
+      url:'../activity-user/index?id='+that.id
+    })
   }
 })

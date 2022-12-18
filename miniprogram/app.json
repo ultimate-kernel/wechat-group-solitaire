@@ -3,6 +3,7 @@
 		"pages/activity-index/index",
     "pages/activity-create/index",
     "pages/activity-details/index",
+    "pages/activity-user/index",
     "pages/activity-me/index",
 		"pages/index/index",
 		"pages/list/list"

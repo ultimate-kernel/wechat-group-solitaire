@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="user-list">
+    <mp-cells>
+      <mp-cell title="报名信息" wx:for="{{signupList}}" wx:key="index" wx:for-index="idx">
+        <view><text>姓名：{{item.nickname || '---'}}</text></view>
+        <view><text>上车地点：{{item.selectedCarLocation || '---'}}</text></view>
+      </mp-cell>
+    </mp-cells>
+  </view>
+</view>
