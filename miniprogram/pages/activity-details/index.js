@@ -13,6 +13,7 @@ Page({
       address: ''
     },
     carLocationGroup: [],
+    signupList: [],
     dialogButtons: [
       {
         type: 'primary',
@@ -46,6 +47,7 @@ Page({
           address:  formData.position.address
         },
         carLocationGroup: formData.carLocationGroup,
+        signupList: formData.signupList || []
       })
     }
     wx.hideLoading()
@@ -71,9 +73,10 @@ Page({
         showDialog:true
       })
   },
-  confirmRegistrationTap(){
+  async confirmRegistrationTap(){
     this.setData({
       showDialog:false
     })
+    await app.call({ name: 'add_activity_user', data: {id: that.id}})
   },
 })

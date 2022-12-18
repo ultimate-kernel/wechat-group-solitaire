@@ -1,5 +1,5 @@
 /**
- * 添加报名信息
+ * 修改报名信息
  */
 module.exports = async function (event, content, cloud) {
   const db = cloud.database()
@@ -7,7 +7,7 @@ module.exports = async function (event, content, cloud) {
 	const { formData } = event.data || {}
   const OPENID = cloud.getWXContext().OPENID
 	const res = {}
-	res.data = await db.collection('registration_activity').add({
+	res.data = await db.collection('registration_user').add({
     data: {
       openid: OPENID,
       ...formData

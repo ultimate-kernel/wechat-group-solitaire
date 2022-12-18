@@ -1,4 +1,3 @@
-const defaultavatar = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 const app = getApp() // 全局APP
 let that = null // 页面this指针
 Page({
@@ -32,13 +31,14 @@ Page({
         text: '删除',
         value: 1
       }
-    ]
+    ],
+    signupList:[]
   },
   async onLoad (options) {
     that = this
     that.id = options.id
-    app.call({ name: 'get_activity', data: { id: 'eef21281639d847e0041f1b60eba4990'} })
-    app.call({ name: 'get_activity_list', data: { } })
+    // app.call({ name: 'get_activity', data: { id: 'eef21281639d847e0041f1b60eba4990'} })
+    // app.call({ name: 'get_activity_list', data: { } })
   },
   openDialog: function () {
     this.setData({

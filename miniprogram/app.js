@@ -1,5 +1,6 @@
 App({
   flag: false,
+  OPENID: '',
   async onLaunch (e) {
 		wx.cloud.init()
     this.initcloud()
@@ -57,6 +58,7 @@ App({
       console.log('【云函数调用成功】', res)
       if (res.result.name === 'registration') {
         if (res.result.data !== false) { // 如果返回值不为false，则证明正常访问
+          this.OPENID = res.result.OPENID
           return res.result.data
         } else { // 否则
           wx.hideLoading()
