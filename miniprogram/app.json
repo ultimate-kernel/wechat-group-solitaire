@@ -4,9 +4,7 @@
     "pages/activity-create/index",
     "pages/activity-details/index",
     "pages/activity-user/index",
-    "pages/activity-me/index",
-		"pages/index/index",
-		"pages/list/list"
+    "pages/activity-me/index"
 	],
 	"window": {
 		"navigationBarTextStyle": "white"
