@@ -10,8 +10,8 @@
     "mp-slideview": "weui-miniprogram/slideview/slideview",
     "mp-half-screen-dialog": "weui-miniprogram/half-screen-dialog/half-screen-dialog"
 	},
-	"navigationBarTitleText": "发布活动",
+	"navigationBarTitleText": "活动详情",
     "navigationBarBackgroundColor": "#ffffff",
-    "enablePullDownRefresh":true,
+    "enablePullDownRefresh": false,
     "backgroundTextStyle":"light"
 }

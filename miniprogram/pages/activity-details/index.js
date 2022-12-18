@@ -27,9 +27,6 @@ Page({
   onLoad (query) {
     that = this
     that.id = query.id
-    wx.startPullDownRefresh()
-  },
-  onPullDownRefresh () {
     that.init()
   },
   async init() {
@@ -70,16 +67,6 @@ Page({
     }
   },
   addRegistrationTap(){
-      wx.getUserInfo({
-        withCredentials:false,
-        lang: 'zh_CN',
-        success:function(res){
-          console.log(res)
-          that.setData({
-            nickName:res.userInfo.nickName
-          })
-        }
-      })
       this.setData({
         showDialog:true
       })

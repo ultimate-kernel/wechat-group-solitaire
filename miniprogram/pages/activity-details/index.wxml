@@ -8,8 +8,8 @@
         <mp-cell title="活动地址" link bindtap="openLocation" data-info="{{position}}">
           <text>{{position.address}}</text>
         </mp-cell>
-        <mp-cell title="活动人数">
-          <input model:value="{{peopleLimit}}" placeholder="活动人数上限" />
+        <mp-cell title="活动人数" link>
+          <text>{{peopleLimit}}</text>
         </mp-cell>
         <mp-cell title="注意事项">
           <text >{{activityDesc}}</text>
@@ -20,7 +20,7 @@
         <mp-cell title="集合时间">
            <text>{{time}}</text>
         </mp-cell>
-        <mp-cell title="上车地点"  bindtap="openDialog">
+        <mp-cell title="上车地点">
           <block ext-class="slideview-item" wx:for="{{carLocationGroup}}" wx:key="index" wx:for-index="idx" data-index="{{idx}}" buttons="{{slidevButtons}}" bindbuttontap="bindSlideviewTap">
             <text>{{item}}</text>
           </block>
@@ -28,14 +28,14 @@
       </mp-cells>
     </mp-form>
     <view slot="button">
-      <button class="weui-btn" type="primary" bindtap="addRegistrationTap">报名</button>
+      <button class="weui-btn" type="primary" bindtap="addRegistrationTap">立即报名</button>
     </view>
   </mp-form-page>
 </view>
 <mp-half-screen-dialog bindbuttontap="confirmRegistrationTap" show="{{showDialog}}" maskClosable="{{true}}" title="确认报名信息" buttons="{{dialogButtons}}">
   <mp-cells slot="desc">
     <mp-cell title="报名名称">
-      <input model:value="{{nickName}}" placeholder="输入报名名称" />
+      <input model:value="{{nickName}}" type="nickname" placeholder="输入报名名称" />
     </mp-cell>
     <mp-cell title="上车地点">
       <radio-group bindchange="radioChange">
