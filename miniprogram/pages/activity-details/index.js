@@ -36,9 +36,9 @@ Page({
     const res = await app.call({ name: 'get_activity', data: {id:that.id} })
     if(res.code === 0) {
       const formData = res.data
-      this.isSignUp = false
+      this.data.isSignUp = false
       if( formData.signupList &&  formData.signupList.some(item=>item.openId === app.OPENID)){
-        this.isSignUp = true
+        this.data.isSignUp = true
       }
       this.setData({
         activityTitle:formData.activityTitle,
@@ -53,7 +53,7 @@ Page({
         },
         carLocationGroup: formData.carLocationGroup,
         signupList: formData.signupList || [],
-        isSignUp: this.isSignUp
+        isSignUp: this.data.isSignUp
       })
     }
     wx.hideLoading()
@@ -83,7 +83,7 @@ Page({
     this.setData({
       showDialog:false
     })
-    await app.call({ name: 'add_activity_user', data: {id: that.id,nickName:that.nickName,selectedCarLocation:that.selectedCarLocation}})
+    await app.call({ name: 'add_activity_user', data: {id: that.id,nickName:that.data.nickName,selectedCarLocation:that.data.selectedCarLocation}})
     wx.showToast({
       title: '报名成功',
       icon: 'success',
@@ -92,6 +92,7 @@ Page({
         that.init()
       }
     })
+
   },
   async cancelRegistrationTap(){
     await app.call({ name: 'delete_activity_user', data: {id: that.id}})
@@ -106,7 +107,7 @@ Page({
   },
   bindRadioChange(e){
     const value = e.detail.value
-    this.selectedCarLocation = value
+    this.data.selectedCarLocation = value
   },
   goUserList(){
     wx.navigateTo({

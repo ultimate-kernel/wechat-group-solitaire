@@ -36,7 +36,7 @@
 <mp-half-screen-dialog bindbuttontap="confirmRegistrationTap" show="{{showDialog}}" maskClosable="{{true}}" title="确认报名信息" buttons="{{dialogButtons}}">
   <mp-cells slot="desc">
     <mp-cell title="报名">
-      <input model:value="{{nickName}}" type="nickname" placeholder="输入名称" />
+      <input model:value="{{nickName}}" type="nickname" placeholder="输入名称" placeholder="输入上车地点" />
     </mp-cell>
     <mp-cell title="上车地点">
       <radio-group bindchange="bindRadioChange">
