@@ -15,13 +15,19 @@
     "borderStyle": "black",
     "list": [{
       "pagePath": "pages/activity-index/index",
-      "text": "首页"
+      "text": "首页",
+      "iconPath":"/assets/img/icon/icon_topbar_01.png",
+      "selectedIconPath": "/assets/img/icon/icon_topbar_01_selected.png"
     }, {
       "pagePath": "pages/activity-create/index",
-      "text": "发布活动"
+      "text": "发布活动",
+      "iconPath":"/assets/img/icon/icon_topbar_03.png",
+      "selectedIconPath": "/assets/img/icon/icon_topbar_03_selected.png"
     }, {
       "pagePath": "pages/activity-me/index",
-      "text": "我的"
+      "text": "我的",
+      "iconPath":"/assets/img/icon/icon_topbar_02.png",
+      "selectedIconPath": "/assets/img/icon/icon_topbar_02_selected.png"
     }]
   },
 	"useExtendedLib": {

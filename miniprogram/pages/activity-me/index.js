@@ -7,7 +7,7 @@ Page({
   onLoad (query) {
     that = this
     that.id = query.id
-    wx.startPullDownRefresh()
+    that.init()
   },
   onPullDownRefresh () {
     that.init()

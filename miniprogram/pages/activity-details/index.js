@@ -69,9 +69,9 @@ Page({
   },
   onShareAppMessage () {
     return {
-      title: '活动报名｜',
+      title: `活动报名｜${this.data.activityTitle}`,
       path: `pages/activity-details/index?id=${that.id||'INIT'}`,
-      imageUrl: ''
+      imageUrl: 'https://636c-cloud1-6gtmbwrn371ad3f5-1315825146.tcb.qcloud.la/WechatIMG1767.jpeg?sign=9bb237a246b587fea71b098350e6f63e&t=1671451370'
     }
   },
   addRegistrationTap(){
