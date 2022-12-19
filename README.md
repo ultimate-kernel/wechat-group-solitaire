@@ -28,3 +28,6 @@ module.exports = {
 - 你可以在 `mp_register_project` 中创建多个活动，在小程序端以`pages/index/index?id=XXX`的形式访问。
 - 自己的活动图片可以上传保存在云存储中，或者静态资源存储中，拒绝盗用其他人的图片链接。
 
+## 效果演示
+
+<img src="./demo.gif" width="50%">
