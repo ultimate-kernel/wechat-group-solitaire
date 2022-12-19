@@ -1,5 +1,5 @@
 <view class="form-container">
-  <mp-form-page title="活动信息">
+  <mp-form-page title="活动报名">
     <mp-form id="form">
       <mp-cells>
         <mp-cell title="活动名称">
