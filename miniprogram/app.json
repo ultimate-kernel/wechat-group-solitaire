@@ -7,7 +7,7 @@
     "pages/activity-me/index"
 	],
 	"window": {
-		"navigationBarTextStyle": "white"
+		"navigationBarTextStyle": "black"
 	},
   "tabBar": {
     "color": "#a9b7b7",
