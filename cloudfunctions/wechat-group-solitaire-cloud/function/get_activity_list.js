@@ -4,7 +4,7 @@
 module.exports = async function (event, content, cloud) {
   const db = cloud.database()
   const _ = db.command
-  const OPENID = cloud.getWXContext().OPENID
+  const OPENID = await cloud.getWXContext().OPENID
 	const res = {}
 	const { data }= await db.collection('registration_activity').where({
     openid: OPENID

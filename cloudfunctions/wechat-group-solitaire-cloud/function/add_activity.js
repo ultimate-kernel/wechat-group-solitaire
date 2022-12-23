@@ -5,7 +5,7 @@ module.exports = async function (event, content, cloud) {
   const db = cloud.database()
   const _ = db.command
 	const { formData } = event.data || {}
-  const OPENID = cloud.getWXContext().OPENID
+  const OPENID = await cloud.getWXContext().OPENID
 	const res = {}
 	res.data = await db.collection('registration_activity').add({
     data: {

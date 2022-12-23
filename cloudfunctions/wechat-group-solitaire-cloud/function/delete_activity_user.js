@@ -5,7 +5,7 @@ module.exports = async function (event, content, cloud) {
   const db = cloud.database()
   const _ = db.command
 	const { id } = event.data || {}
-  const OPENID = cloud.getWXContext().OPENID
+  const OPENID = await cloud.getWXContext().OPENID
 	const res = {}
   const activityInfo = await db.collection('registration_activity').doc(id).get()
   const filterSignList = activityInfo.data.signupList.filter(item=>item.openId!== OPENID)
