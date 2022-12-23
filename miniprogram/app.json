@@ -6,6 +6,9 @@
     "pages/activity-user/index",
     "pages/activity-me/index"
 	],
+  "requiredPrivateInfos":[
+    "chooseLocation"
+  ],
 	"window": {
 		"navigationBarTextStyle": "black"
 	},
