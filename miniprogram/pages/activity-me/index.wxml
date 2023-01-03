@@ -1,7 +1,7 @@
 <view class="container">
   <view class="activity-list">
     <mp-cells title="我发布的活动">
-      <mp-cell title="活动" wx:for="{{activityList}}" wx:key="index" wx:for-index="idx" link data-item="{{item}}" bindtap="goActivityDetail">
+      <mp-cell title="" wx:for="{{activityList}}" wx:key="index" wx:for-index="idx" link data-item="{{item}}" bindtap="goActivityDetail">
         <text>{{item.activityTitle || '--'}}</text>
       </mp-cell>
     </mp-cells>
