@@ -35,3 +35,7 @@ page {
 .weui-slideview__btn{
   padding: 5px 0 5px 0px;
 }
+
+.form-item {
+  margin-left: 10px;
+}

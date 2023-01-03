@@ -35,11 +35,11 @@
 </view>
 <mp-half-screen-dialog bindbuttontap="confirmRegistrationTap" show="{{showDialog}}" maskClosable="{{true}}" title="确认报名信息" buttons="{{dialogButtons}}">
   <mp-cells slot="desc">
-    <mp-cell title="报名">
-      <input model:value="{{nickName}}" type="nickname" placeholder="输入名称" placeholder="输入上车地点" />
+    <mp-cell title="报名信息">
+      <input model:value="{{nickName}}" class="form-item" type="nickname" placeholder="输入名称" />
     </mp-cell>
     <mp-cell title="集合地点">
-      <radio-group bindchange="bindRadioChange">
+      <radio-group bindchange="bindRadioChange" class="form-item">
         <radio wx:for="{{carLocationGroup}}" wx:key="index" value="{{item}}">
           {{item}}
         </radio>
