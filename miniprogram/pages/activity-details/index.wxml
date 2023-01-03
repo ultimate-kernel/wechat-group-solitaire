@@ -20,7 +20,7 @@
         <mp-cell title="集合时间">
            <text>{{time}}</text>
         </mp-cell>
-        <mp-cell title="上车地点">
+        <mp-cell title="集合地点">
           <block ext-class="slideview-item" wx:for="{{carLocationGroup}}" wx:key="index" wx:for-index="idx" data-index="{{idx}}" buttons="{{slidevButtons}}" bindbuttontap="bindSlideviewTap">
             <view><text>{{idx+1}}、{{item}}</text></view>
           </block>
@@ -38,7 +38,7 @@
     <mp-cell title="报名">
       <input model:value="{{nickName}}" type="nickname" placeholder="输入名称" placeholder="输入上车地点" />
     </mp-cell>
-    <mp-cell title="上车地点">
+    <mp-cell title="集合地点">
       <radio-group bindchange="bindRadioChange">
         <radio wx:for="{{carLocationGroup}}" wx:key="index" value="{{item}}">
           {{item}}
