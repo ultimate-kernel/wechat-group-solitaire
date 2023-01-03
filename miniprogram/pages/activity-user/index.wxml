@@ -2,8 +2,8 @@
   <view class="user-list">
     <mp-cells title="报名信息">
       <mp-cell title="" wx:for="{{signupList}}" wx:key="index">
-        <view><text>姓名：{{item.nickName || '---'}}</text></view>
-        <view><text>地点：{{item.selectedCarLocation || '---'}}</text></view>
+        <view><text>姓名：{{item.nickName || '--'}}</text></view>
+        <view><text>地点：{{item.selectedCarLocation || '--'}}</text></view>
       </mp-cell>
     </mp-cells>
   </view>
